@@ -1,0 +1,13 @@
+<%# @param post [Thredded::PostView] %>
+<header>
+  <%= image_tag post.avatar_url, class: 'thredded--post--avatar' if post.user %>
+  <h2 class="thredded--post--user"><%= user_link post.user %></h2>
+  <a href="<%= post.permalink_path %>" rel="nofollow" class="thredded--link thredded--post--created-at">
+    создан
+    <%= post.to_model.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+    <% if post.to_model.created_at != post.to_model.updated_at %>
+      , изменён
+      <%= post.to_model.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  <% end %>
+  </a>
+</header>
