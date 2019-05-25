@@ -63,3 +63,41 @@
   display: inline-block;
   font-size: xx-small;
 }
+
+.input-container {
+  max-width: 100%;
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+}
+
+input[type='file'] {
+  //display: none;
+  opacity: 0;
+  position: absolute;
+}
+
+.file-info {
+  font-size: 0.9em;
+}
+
+.browse-btn {
+  min-height: 35px;
+  padding: 10px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+@media (max-width: 300px) {
+  button {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+  }
+
+  .file-info {
+    display: block;
+    margin: 10px 5px;
+    width: 300px;
+  }
+}
