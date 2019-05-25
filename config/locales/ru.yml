@@ -208,7 +208,7 @@ ru:
       form:
         btn_submit: :thredded.search.form.label
         label: Поиск
-        placeholder: Поиск тем или записей
+        placeholder: Поиск
     time_ago: "%{time} назад"
     topics:
       create: :thredded.topics.form.create_btn

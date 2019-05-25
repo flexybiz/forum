@@ -11,4 +11,7 @@
       <%= render 'thredded/shared/content_moderation_blocked_state', moderation_record: post.last_moderation_record %>
     </p>
   <% end %>
+  <% if post.to_model.file.attached? %>
+    <%= link_to "Прикреплённый файл", main_app.url_for(post.to_model.file), target: "_blank" %>
+  <% end %>
 <% end %>

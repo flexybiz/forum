@@ -31,5 +31,7 @@ module Forum
     config.generators.system_tests = nil
     config.i18n.available_locales = %w(ru en)
     config.i18n.default_locale = :ru
+    config.assets.paths << Rails.root.join('fonts')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf|woff2)$/
   end
 end

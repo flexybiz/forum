@@ -9,4 +9,58 @@
   @include thredded-media-tablet-and-up {
     padding: 0;
   }
+  font-family: Droid;
+}
+.thredded--messageboards-group--title {
+  background-color: #DDDDDD;
+  margin: 0;
+  padding: 5px;
+}
+.tthredded--messageboard--title {
+  font-size: 1.125rem;
+  display: inline-block;
+  float: left;
+  line-height: 1.2;
+  vertical-align: baseline;
+  text-decoration: underline;
+}
+.thredded--messageboard--title {
+  font-size: 1.125rem;
+  display: inline-block;
+  float: left;
+  line-height: 1.2;
+  vertical-align: baseline;
+  color: #d81759;
+}
+.thredded--topics--title a {
+  color: #d81759;
+  display: inline;
+}
+.thredded--form--submit, button, input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(109deg,#92099a,var(--neon-pink-two));
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Raleway", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.thredded--topic-header--follow-info--reason {
+  display: inline-block;
+  font-size: xx-small;
 }

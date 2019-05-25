@@ -5,7 +5,7 @@
       <%= render 'thredded/posts_common/actions/quote', post: post %>
     <% end  %>
 
-  <% if (post.to_model.created_at + 60 > Date.today) or current_user.admin? %>
+  <% if current_user and ((post.to_model.created_at + 1.hour > Date.today) or current_user.admin?) %>
     <% if post.can_update? %>
       <%= render 'thredded/posts_common/actions/edit', post: post %>
     <% end %>

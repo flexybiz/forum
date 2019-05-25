@@ -9,7 +9,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag current_theme, media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_include_tag 'application',
                                 async: !Rails.application.config.assets.debug,
                                 defer: true,
@@ -18,7 +17,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 
-  <body class="app">
+  <body class="app" style="font-family: Anonymous">
 <% is_thredded = content_for?(:thredded_page_id) %>
 <%= content_tag :div,
                 class: 'app-container',
