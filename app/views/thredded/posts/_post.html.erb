@@ -12,6 +12,7 @@
     </p>
   <% end %>
   <% if post.to_model.file.attached? %>
-    <%= link_to "Прикреплённый файл", main_app.url_for(post.to_model.file), target: "_blank" %>
+    <%= shared_inline_svg "skr.svg", class: "thredded--topics--skr-icon", role: "img"  %>
+    <%= link_to post.to_model.file.filename.sanitized, main_app.url_for(post.to_model.file), target: "_blank" %>
   <% end %>
 <% end %>
