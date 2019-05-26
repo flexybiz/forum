@@ -41,6 +41,9 @@ module Thredded
 
     def update
       authorize post, :update?
+      if params[:delete] != nil and params[:delete][:file] == "true"
+        post.file.purge
+      end
       post.update(new_post_params)
 
       redirect_to post_path(post, user: thredded_current_user)
