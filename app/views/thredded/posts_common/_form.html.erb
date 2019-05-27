@@ -16,9 +16,10 @@
       <div class="input-container">
         <%= form.file_field :file %>
         <button class="browse-btn">Выбрать файл</button>
-        <span class="file-info"></span>
+        <span id="file-info" class="file-info"></span>
       </div>
     <li>
+      <button style="float: right;" type='button' onclick="clearFile();">Очистить</button>
       <% button_submitting_text ||=
              post.persisted? ? t('thredded.form.update_btn_submitting') : t('thredded.form.create_btn_submitting') %>
       <button type="submit" class="thredded--form--submit" data-disable-with="<%= button_submitting_text %>">
@@ -28,14 +29,20 @@
   </ul>
 <% end %>
 <script>
-  const uploadButton = document.querySelector('.browse-btn');
-  const fileInfo = document.querySelector('.file-info');
-  const realInput = document.getElementById('post_file');
-  uploadButton.addEventListener('click', () => {
-    realInput.click();
-  });
-  realInput.addEventListener('change', () => {
-    const name = realInput.value.split(/\\|\//).pop();
-    fileInfo.innerHTML = name;
-  });
+  if(typeof uploadButton == "undefined") {
+    const uploadButton = document.querySelector('.browse-btn');
+    const fileInfo = document.querySelector('.file-info');
+    const realInput = document.getElementById('post_file');
+    uploadButton.addEventListener('click', () => {
+      realInput.click();
+    });
+    realInput.addEventListener('change', () => {
+      const name = realInput.value.split(/\\|\//).pop();
+      fileInfo.innerHTML = name;
+    });
+  }
+  function clearFile(e) {
+    document.getElementById('post_file').value = null;
+    document.getElementById('file-info').innerText = '';
+  }
 </script>

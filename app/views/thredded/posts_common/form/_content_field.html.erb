@@ -8,7 +8,7 @@
          <%= hidden_field :delete, :file, value: false %>
          <%= shared_inline_svg "skr.svg", class: "thredded--topics--skr-icon", role: "img"  %>
          <%= link_to @post_form.post.file.filename.sanitized, main_app.url_for(@post_form.post.file), target: "_blank", id: "attachedFile" %>
-         <span class="deleteFile" onclick="deleteFile( <%= @post_form.post.id %> );">&#10006;</span>
+         <span id="fileToDelete" class="deleteFile" onclick="deleteFile( <%= @post_form.post.id %> );">&#10006;</span>
        <% end  %>
       <% end  %>
       <%= render 'thredded/posts_common/form/after_content', form: form %>
@@ -18,12 +18,15 @@
   function deleteFile(prm) {
     const file = document.getElementById('attachedFile');
     const to_del = document.getElementById('delete_file');
+    const deleteFileSign = document.getElementById('fileToDelete');
     if ( to_del.value === "false") {
       file.style = "text-decoration: line-through";
       to_del.value = "true";
+      deleteFileSign.innerHTML = "&#10004;";
     } else {
       file.style = "text-decoration: none";
       to_del.value = "false";
+      deleteFileSign.innerHTML = "&#10006;";
     }
   }
 </script>
