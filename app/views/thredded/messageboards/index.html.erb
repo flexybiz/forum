@@ -8,7 +8,13 @@
       <%= view_hooks.messageboards_index.list.render self, groups: @groups do %>
         <% @groups.each do |group| %>
           <% if group.name.present? %>
-            <h3 class="thredded--messageboards-group--title"><%= group.name %></h3>
+            <h3 id="group_name" class="thredded--messageboards-group--title"
+              <% if current_user and current_user.admin? %>
+                contenteditable="true" onblur="changeTitle('<%= group.name %>');"
+              <% end %>
+            >
+              <%= group.name %>
+            </h3>
           <% end %>
           <div class="thredded--messageboards-group">
             <%= view_hooks.messageboards_index.group.render self, group: group do %>
@@ -34,4 +40,24 @@
       </div>
     </section>
   <% end %>
+<% end %>
+<% if current_user and current_user.admin? %>
+  <script>
+    function changeTitle(it) {
+
+      Rails.ajax({
+        url: "/forum/admin/messageboard_groups/" + it,
+        type: "put",
+        dataType: 'json',
+        contentType: 'application/json',
+        data: document.getElementById('group_name').innerText,
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(data) {
+          console.log(data);
+        }
+      })
+    }
+  </script>
 <% end %>

@@ -20,6 +20,19 @@ module Thredded
       end
     end
 
+    def update
+      newGroup = ""
+      params.each do |k,v|
+        if v == nil
+          newGroup = k
+          break
+        end
+      end
+      group = Thredded::MessageboardGroup.where(name: params[:id])
+      group.update(name: newGroup)
+      head :ok
+    end
+
     private
 
     def messageboard_group_params
