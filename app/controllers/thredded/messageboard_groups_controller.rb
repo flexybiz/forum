@@ -24,12 +24,13 @@ module Thredded
       newGroup = ""
       params.each do |k,v|
         if v == nil
-          newGroup = k
+          newGroup = k.gsub(/\n/,'')
           break
         end
       end
-      group = Thredded::MessageboardGroup.where(name: params[:id])
-      group.update(name: newGroup)
+      group = Thredded::MessageboardGroup.find(params[:id])
+      group.name = newGroup
+      group.save!
       head :ok
     end
 

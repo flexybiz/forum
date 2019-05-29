@@ -8,9 +8,9 @@
       <%= view_hooks.messageboards_index.list.render self, groups: @groups do %>
         <% @groups.each do |group| %>
           <% if group.name.present? %>
-            <h3 id="group_name" class="thredded--messageboards-group--title"
+            <h3 id="group_name_<%= group.instance_values['group'].id %>" class="thredded--messageboards-group--title"
               <% if current_user and current_user.admin? %>
-                contenteditable="true" onblur="changeTitle('<%= group.name %>');"
+                contenteditable="true" onblur="changeTitle('<%= group.instance_values["group"].id %>');"
               <% end %>
             >
               <%= group.name %>
@@ -50,7 +50,7 @@
         type: "put",
         dataType: 'json',
         contentType: 'application/json',
-        data: document.getElementById('group_name').innerText,
+        data: document.getElementById('group_name_' + it).innerText,
         success: function(data) {
           console.log(data);
         },
