@@ -32,5 +32,5 @@
 <% if posts_page.present? %>
     <h2><%= t 'thredded.users.recent_activity' %></h2>
     <%= Thredded::ApplicationController.render partial: 'thredded/users/posts',
-                                               locals: { posts: posts_page } %>
+                                               locals: { posts: posts_page, current_user: current_user } %>
 <% end %>
