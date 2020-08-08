@@ -162,7 +162,8 @@ GEM
     kaminari-i18n (0.5.0)
       kaminari
       rails
-    kramdown (2.1.0)
+    kramdown (2.3.0)
+      rexml
     kramdown-parser-gfm (1.0.1)
       kramdown (~> 2.0)
     listen (3.1.5)
@@ -255,6 +256,7 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    rexml (3.2.4)
     rinku (2.0.6)
     roadie (3.5.0)
       css_parser (~> 1.4)
