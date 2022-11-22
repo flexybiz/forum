@@ -84,7 +84,7 @@ GEM
     crass (1.0.4)
     css_parser (1.7.0)
       addressable
-    dalli (2.7.10)
+    dalli (3.2.3)
     db_text_search (0.3.0)
       activerecord (>= 4.1.15, < 6.0)
     deep_merge (1.2.1)
